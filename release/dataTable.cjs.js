@@ -303,7 +303,7 @@ function CellDirective($rootScope, $compile, $log, $timeout) {
       onTreeToggle: '&',
       onCheckboxChange: '&'
     },
-    template: "<div class=\"dt-cell\"\n            data-title=\"{{::cell.column.name}}\"\n            ng-style=\"cell.styles()\"\n            ng-class=\"cell.cellClass()\">\n        <span class=\"dt-cell-content\"></span>\n      </div>",
+    template: "<div class=\"dt-cell\"\n            data-title=\"{{::cell.column.name}}\"\n            ng-style=\"cell.styles()\">\n        <span class=\"dt-cell-content\"></span>\n      </div>",
     replace: true,
     compile: function compile() {
       return {

@@ -363,8 +363,7 @@ function CellDirective($rootScope, $compile, $log, $timeout){
     template:
       `<div class="dt-cell"
             data-title="{{::cell.column.name}}"
-            ng-style="cell.styles()"
-            ng-class="cell.cellClass()">
+            ng-style="cell.styles()">
         <span class="dt-cell-content"></span>
       </div>`,
     replace: true,
