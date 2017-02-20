@@ -33,25 +33,17 @@ export function DataTableDirective($window, $timeout, $parse){
 
       return `<div class="dt" ng-class="dt.tableCss()" data-column-id="${id}">
           <dt-header options="dt.options"
-                     on-checkbox-change="dt.onHeaderCheckboxChange()"
                      columns="dt.columnsByPin"
                      column-widths="dt.columnWidths"
                      ng-if="dt.options.headerHeight"
                      on-resize="dt.onResized(column, width)"
-                     selected="dt.isAllRowsSelected()"
                      on-sort="dt.onSorted()">
           </dt-header>
           <dt-body rows="dt.rows"
-                   selected="dt.selected"
-                   expanded="dt.expanded"
                    columns="dt.columnsByPin"
-                   on-select="dt.onSelected(rows)"
-                   on-row-click="dt.onRowClicked(row)"
-                   on-row-dbl-click="dt.onRowDblClicked(row)"
                    column-widths="dt.columnWidths"
                    options="dt.options"
-                   on-page="dt.onBodyPage(offset, size)"
-                   on-tree-toggle="dt.onTreeToggled(row, cell)">
+                   on-page="dt.onBodyPage(offset, size)">
            </dt-body>
           <dt-footer ng-if="dt.options.footerHeight"
                      ng-style="{ height: dt.options.footerHeight + 'px' }"
