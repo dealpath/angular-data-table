@@ -34,18 +34,14 @@ export function BodyDirective($timeout){
                         ng-if="r.group"
                         ng-style="body.groupRowStyles(r)" 
                         options="body.options"
-                        tabindex="{{$index}}"
                         row="r">
           </dt-group-row>
           <dt-row ng-repeat-end
                   ng-if="!r.group"
                   row="body.getRowValue($index)"
-                  tabindex="{{$index}}"
                   columns="body.columns"
                   column-widths="body.columnWidths"
-                  ng-class="body.rowClasses(r)"
                   options="body.options"
-                  columns="body.columnsByPin"
                   ng-style="body.rowStyles(r)">
           </dt-row>
         </dt-scroller>
