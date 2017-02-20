@@ -298,12 +298,12 @@ function CellDirective($rootScope, $compile, $log, $timeout) {
       column: '=',
       row: '='
     },
-    template: "<div class=\"dt-cell\"\n            data-title=\"{{::cell.column.name}}\"\n            ng-style=\"cell.styles()\">\n        <span class=\"dt-cell-content\"></span>\n      </div>",
+    template: "<div class=\"dt-cell\"\n            data-title=\"{{::cell.column.name}}\"\n            ng-style=\"cell.styles()\">\n      </div>",
     replace: true,
     compile: function compile() {
       return {
         pre: function pre($scope, $elm, $attrs, ctrl) {
-          var content = angular.element($elm[0].querySelector('.dt-cell-content')),
+          var content = $elm,
               cellScope;
 
           if (ctrl.column.template || ctrl.column.cellRenderer) {

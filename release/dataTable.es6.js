@@ -359,13 +359,12 @@ function CellDirective($rootScope, $compile, $log, $timeout){
       `<div class="dt-cell"
             data-title="{{::cell.column.name}}"
             ng-style="cell.styles()">
-        <span class="dt-cell-content"></span>
       </div>`,
     replace: true,
     compile: function() {
       return {
         pre: function($scope, $elm, $attrs, ctrl) {
-          var content = angular.element($elm[0].querySelector('.dt-cell-content')), cellScope;
+          var content = $elm, cellScope;
 
           // extend the outer scope onto our new cell scope
           if(ctrl.column.template || ctrl.column.cellRenderer){
