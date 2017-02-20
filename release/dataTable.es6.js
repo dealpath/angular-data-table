@@ -365,14 +365,6 @@ function CellDirective($rootScope, $compile, $log, $timeout){
             data-title="{{::cell.column.name}}"
             ng-style="cell.styles()"
             ng-class="cell.cellClass()">
-        <label ng-if="cell.column.isCheckboxColumn" class="dt-checkbox">
-          <input type="checkbox"
-                 ng-checked="cell.selected"
-                 ng-click="cell.onCheckboxChanged($event)" />
-        </label>
-        <span ng-if="cell.column.isTreeColumn && cell.hasChildren"
-              ng-class="cell.treeClass()"
-              ng-click="cell.onTreeToggled($event)"></span>
         <span class="dt-cell-content"></span>
       </div>`,
     replace: true,
@@ -668,10 +660,6 @@ function RowDirective(){
                    on-tree-toggle="rowCtrl.onTreeToggled(cell)"
                    column="column"
                    options="rowCtrl.options"
-                   has-children="rowCtrl.hasChildren"
-                   on-checkbox-change="rowCtrl.onCheckboxChanged($event)"
-                   selected="rowCtrl.selected"
-                   expanded="rowCtrl.expanded"
                    row="rowCtrl.row"
                    value="rowCtrl.getValue(column)">
           </dt-cell>
@@ -682,11 +670,7 @@ function RowDirective(){
                    on-tree-toggle="rowCtrl.onTreeToggled(cell)"
                    column="column"
                    options="rowCtrl.options"
-                   has-children="rowCtrl.hasChildren"
-                   expanded="rowCtrl.expanded"
-                   selected="rowCtrl.selected"
                    row="rowCtrl.row"
-                   on-checkbox-change="rowCtrl.onCheckboxChanged($event)"
                    value="rowCtrl.getValue(column)">
           </dt-cell>
         </div>
@@ -697,11 +681,7 @@ function RowDirective(){
                    on-tree-toggle="rowCtrl.onTreeToggled(cell)"
                    column="column"
                    options="rowCtrl.options"
-                   has-children="rowCtrl.hasChildren"
-                   selected="rowCtrl.selected"
-                   on-checkbox-change="rowCtrl.onCheckboxChanged($event)"
                    row="rowCtrl.row"
-                   expanded="rowCtrl.expanded"
                    value="rowCtrl.getValue(column)">
           </dt-cell>
         </div>
@@ -1576,8 +1556,6 @@ function BodyDirective($timeout){
                         ng-if="r.group"
                         ng-style="body.groupRowStyles(r)" 
                         options="body.options"
-                        on-group-toggle="body.onGroupToggle(group)"
-                        expanded="body.getRowExpanded(r)"
                         tabindex="{{$index}}"
                         row="r">
           </dt-group-row>
@@ -1587,17 +1565,9 @@ function BodyDirective($timeout){
                   tabindex="{{$index}}"
                   columns="body.columns"
                   column-widths="body.columnWidths"
-                  ng-keydown="selCtrl.keyDown($event, $index, r)"
-                  ng-click="selCtrl.rowClicked($event, r.$$index, r)"
-                  ng-dblclick="selCtrl.rowDblClicked($event, r.$$index, r)"
-                  on-tree-toggle="body.onTreeToggled(row, cell)"
                   ng-class="body.rowClasses(r)"
                   options="body.options"
-                  selected="body.isSelected(r)"
-                  on-checkbox-change="selCtrl.onCheckboxChange($event, $index, row)"
                   columns="body.columnsByPin"
-                  has-children="body.getRowHasChildren(r)"
-                  expanded="body.getRowExpanded(r)"
                   ng-style="body.rowStyles(r)">
           </dt-row>
         </dt-scroller>

@@ -36,10 +36,6 @@ export function RowDirective(){
                    on-tree-toggle="rowCtrl.onTreeToggled(cell)"
                    column="column"
                    options="rowCtrl.options"
-                   has-children="rowCtrl.hasChildren"
-                   on-checkbox-change="rowCtrl.onCheckboxChanged($event)"
-                   selected="rowCtrl.selected"
-                   expanded="rowCtrl.expanded"
                    row="rowCtrl.row"
                    value="rowCtrl.getValue(column)">
           </dt-cell>
@@ -50,11 +46,7 @@ export function RowDirective(){
                    on-tree-toggle="rowCtrl.onTreeToggled(cell)"
                    column="column"
                    options="rowCtrl.options"
-                   has-children="rowCtrl.hasChildren"
-                   expanded="rowCtrl.expanded"
-                   selected="rowCtrl.selected"
                    row="rowCtrl.row"
-                   on-checkbox-change="rowCtrl.onCheckboxChanged($event)"
                    value="rowCtrl.getValue(column)">
           </dt-cell>
         </div>
@@ -65,11 +57,7 @@ export function RowDirective(){
                    on-tree-toggle="rowCtrl.onTreeToggled(cell)"
                    column="column"
                    options="rowCtrl.options"
-                   has-children="rowCtrl.hasChildren"
-                   selected="rowCtrl.selected"
-                   on-checkbox-change="rowCtrl.onCheckboxChanged($event)"
                    row="rowCtrl.row"
-                   expanded="rowCtrl.expanded"
                    value="rowCtrl.getValue(column)">
           </dt-cell>
         </div>
