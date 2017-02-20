@@ -5,17 +5,12 @@
  * @license 
  */
 (function (global, factory) {
-  if (typeof define === "function" && define.amd) {
-    define("DataTable", ["exports"], factory);
-  } else if (typeof exports !== "undefined") {
-    factory(exports);
-  } else {
-    var mod = {
-      exports: {}
-    };
-    factory(mod.exports);
-    global.DataTable = mod.exports;
-  }
+  // Dealpath TODO: figure out how to generate this so require works
+  var mod = {
+    exports: {}
+  };
+  factory(mod.exports);
+  global.DataTable = mod.exports;
 })(this, function (exports) {
   "use strict";
 
