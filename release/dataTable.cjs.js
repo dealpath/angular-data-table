@@ -295,13 +295,8 @@ function CellDirective($rootScope, $compile, $log, $timeout) {
     bindToController: {
       options: '=',
       value: '=',
-      selected: '=',
       column: '=',
-      row: '=',
-      expanded: '=',
-      hasChildren: '=',
-      onTreeToggle: '&',
-      onCheckboxChange: '&'
+      row: '='
     },
     template: "<div class=\"dt-cell\"\n            data-title=\"{{::cell.column.name}}\"\n            ng-style=\"cell.styles()\">\n        <span class=\"dt-cell-content\"></span>\n      </div>",
     replace: true,
@@ -533,12 +528,7 @@ function RowDirective() {
       row: '=',
       columns: '=',
       columnWidths: '=',
-      expanded: '=',
-      selected: '=',
-      hasChildren: '=',
-      options: '=',
-      onCheckboxChange: '&',
-      onTreeToggle: '&'
+      options: '='
     },
     link: function link($scope, $elm, $attrs, ctrl) {
       if (ctrl.row) {
@@ -1272,16 +1262,11 @@ function BodyDirective($timeout) {
       columnWidths: '=',
       rows: '=',
       options: '=',
-      selected: '=?',
-      expanded: '=?',
       onPage: '&',
-      onTreeToggle: '&',
-      onSelect: '&',
-      onRowClick: '&',
-      onRowDblClick: '&'
+      onSelect: '&'
     },
     scope: true,
-    template: "\n      <div \n        class=\"progress-linear\" \n        role=\"progressbar\" \n        ng-show=\"body.options.paging.loadingIndicator\">\n        <div class=\"container\">\n          <div class=\"bar\"></div>\n        </div>\n      </div>\n      <div class=\"dt-body\" ng-style=\"body.styles()\" dt-seletion>\n        <dt-scroller class=\"dt-body-scroller\">\n          <dt-group-row ng-repeat-start=\"r in body.tempRows track by $index\"\n                        ng-if=\"r.group\"\n                        ng-style=\"body.groupRowStyles(r)\" \n                        options=\"body.options\"\n                        row=\"r\">\n          </dt-group-row>\n          <dt-row ng-repeat-end\n                  ng-if=\"!r.group\"\n                  row=\"body.getRowValue($index)\"\n                  columns=\"body.columns\"\n                  column-widths=\"body.columnWidths\"\n                  options=\"body.options\"\n                  ng-style=\"body.rowStyles(r)\">\n          </dt-row>\n        </dt-scroller>\n        <div ng-if=\"body.rows && !body.rows.length\" \n             class=\"empty-row\" \n             ng-bind=\"::body.options.emptyMessage\">\n       </div>\n       <div ng-if=\"body.rows === undefined\" \n             class=\"loading-row\"\n             ng-bind=\"::body.options.loadingMessage\">\n        </div>\n      </div>"
+    template: "\n      <div \n        class=\"progress-linear\" \n        role=\"progressbar\" \n        ng-show=\"body.options.paging.loadingIndicator\">\n        <div class=\"container\">\n          <div class=\"bar\"></div>\n        </div>\n      </div>\n      <div class=\"dt-body\" ng-style=\"body.styles()\" dt-seletion>\n        <dt-scroller class=\"dt-body-scroller\">\n          <dt-row ng-repeat=\"r in body.tempRows track by $index\"\n                  row=\"body.getRowValue($index)\"\n                  columns=\"body.columns\"\n                  column-widths=\"body.columnWidths\"\n                  options=\"body.options\"\n                  ng-style=\"body.rowStyles(r)\">\n          </dt-row>\n        </dt-scroller>\n        <div ng-if=\"body.rows && !body.rows.length\" \n             class=\"empty-row\" \n             ng-bind=\"::body.options.emptyMessage\">\n       </div>\n       <div ng-if=\"body.rows === undefined\" \n             class=\"loading-row\"\n             ng-bind=\"::body.options.loadingMessage\">\n        </div>\n      </div>"
   };
 }
 
@@ -2319,10 +2304,7 @@ function DataTableDirective($window, $timeout, $parse) {
       expanded: '=?',
       onSelect: '&',
       onSort: '&',
-      onTreeToggle: '&',
       onPage: '&',
-      onRowClick: '&',
-      onRowDblClick: '&',
       onColumnResize: '&'
     },
     controllerAs: 'dt',

@@ -17,10 +17,7 @@ export function DataTableDirective($window, $timeout, $parse){
       expanded: '=?',
       onSelect: '&',
       onSort: '&',
-      onTreeToggle: '&',
       onPage: '&',
-      onRowClick: '&',
-      onRowDblClick: '&',
       onColumnResize: '&'
     },
     controllerAs: 'dt',

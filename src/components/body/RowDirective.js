@@ -11,12 +11,7 @@ export function RowDirective(){
       row: '=',
       columns: '=',
       columnWidths: '=',
-      expanded: '=',
-      selected: '=',
-      hasChildren: '=',
-      options: '=',
-      onCheckboxChange: '&',
-      onTreeToggle: '&'
+      options: '='
     },
     link: function($scope, $elm, $attrs, ctrl){
       if(ctrl.row){

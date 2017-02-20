@@ -10,13 +10,8 @@ export function CellDirective($rootScope, $compile, $log, $timeout){
     bindToController: {
       options: '=',
       value: '=',
-      selected: '=',
       column: '=',
-      row: '=',
-      expanded: '=',
-      hasChildren: '=',
-      onTreeToggle: '&',
-      onCheckboxChange: '&'
+      row: '='
     },
     template:
       `<div class="dt-cell"

@@ -10,13 +10,8 @@ export function BodyDirective($timeout){
       columnWidths: '=',
       rows: '=',
       options: '=',
-      selected: '=?',
-      expanded: '=?',
       onPage: '&',
-      onTreeToggle: '&',
-      onSelect: '&',
-      onRowClick: '&',
-      onRowDblClick: '&'
+      onSelect: '&'
     },
     scope: true,
     template: `
@@ -30,14 +25,7 @@ export function BodyDirective($timeout){
       </div>
       <div class="dt-body" ng-style="body.styles()" dt-seletion>
         <dt-scroller class="dt-body-scroller">
-          <dt-group-row ng-repeat-start="r in body.tempRows track by $index"
-                        ng-if="r.group"
-                        ng-style="body.groupRowStyles(r)" 
-                        options="body.options"
-                        row="r">
-          </dt-group-row>
-          <dt-row ng-repeat-end
-                  ng-if="!r.group"
+          <dt-row ng-repeat="r in body.tempRows track by $index"
                   row="body.getRowValue($index)"
                   columns="body.columns"
                   column-widths="body.columnWidths"
