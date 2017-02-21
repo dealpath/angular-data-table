@@ -5,7 +5,6 @@
  * @license 
  */
 (function (global, factory) {
-  // Dealpath TODO: figure out how to generate this so require works
   var mod = {
     exports: {}
   };

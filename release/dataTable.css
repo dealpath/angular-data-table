@@ -105,7 +105,7 @@
 .dt .dt-body {
   overflow: auto;
   position: relative;
-  z-index: 10;
+  z-index: 5;
 }
 .dt .dt-body .dt-body-scroller {
   white-space: nowrap;
