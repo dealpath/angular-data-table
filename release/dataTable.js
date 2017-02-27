@@ -5,11 +5,18 @@
  * @license 
  */
 (function (global, factory) {
-  var mod = {
-    exports: {}
-  };
-  factory(mod.exports);
-  global.DataTable = mod.exports;
+  // DEALPATH: MAKE THIS WORK WITH REQUIREJS
+  // if (typeof define === "function" && define.amd) {
+  //   define("DataTable", ["exports"], factory);
+  // } else if (typeof exports !== "undefined") {
+  //   factory(exports);
+  // } else {
+    var mod = {
+      exports: {}
+    };
+    factory(mod.exports);
+    global.DataTable = mod.exports;
+  // }
 })(this, function (exports) {
   "use strict";
 
